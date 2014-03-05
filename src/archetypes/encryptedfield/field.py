@@ -48,8 +48,9 @@ class EncryptedField(StringField):
         request = getattr(instance, "REQUEST", None)
         provider = self.key_provider(instance, request)
 
-        if not provider.canDecrypt(self):
-            return self.msg_decrypt_filler
+        #need to show the value instead of "msg_decrypt_filler" but just readonly
+        #if not provider.canDecrypt(self):
+        #    return self.msg_decrypt_filler
 
         key = provider.getKey(self)
 
